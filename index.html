@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="GreenGamesStudio — сайт молодого геймдева из Казахстана. Игры, мини-игры, идеи и многое другое от Сайына Мираса!">
+    <meta name="keywords" content="GreenGamesStudio, игры, мини-игры, геймдев, Сайын Мирас, Казахстан, Run From Neighbor, Roblox">
+    <meta name="author" content="Сайын Мирас">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="GreenGamesStudio — Игры от Сайына Мираса">
+    <meta property="og:description" content="Молодой геймдев из Казахстана создаёт уникальные игры и мини-игры!">
+    <meta property="og:image" content="https://miras761.github.io/GreenGamesStudio---Studio-About-Does-Games/images/og-image.jpg">
+    <meta property="og:url" content="https://miras761.github.io/GreenGamesStudio---Studio-About-Does-Games">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GreenGamesStudio — Игры от Сайына Мираса">
+    <meta name="twitter:description" content="Молодой геймдев из Казахстана создаёт уникальные игры и мини-игры!">
+    <meta name="twitter:image" content="https://miras761.github.io/GreenGamesStudio---Studio-About-Does-Games/images/og-image.jpg">
+    <title>GreenGamesStudio</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Orbitron';
+            src: url('fonts/Orbitron-Regular.woff2') format('woff2');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Orbitron';
+            src: url('fonts/Orbitron-Bold.woff2') format('woff2');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Roboto';
+            src: url('fonts/Roboto-Regular.woff2') format('woff2');
+            font-weight: 400;
+        }
+        @font-face {
+            font-family: 'Roboto';
+            src: url('fonts/Roboto-Bold.woff2') format('woff2');
+            font-weight: 700;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 100%), radial-gradient(circle, rgba(0, 255, 127, 0.1) 0%, transparent 70%);
+            color: #E0E0E0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            background-attachment: fixed;
+        }
+        .container { width: 90%; max-width: 1800px; margin: 0 auto; padding: clamp(0.8rem, 2.5vw, 1.8rem); }
+        header { background: rgba(0, 0, 0, 0.85); padding: clamp(0.4rem, 1.5vw, 0.8rem) 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0, 255, 127, 0.4); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 255, 127, 0.2); }
+        nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: clamp(0.4rem, 1.5vw, 0.8rem); }
+        .logo { font-family: 'Orbitron', sans-serif; font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 700; background: linear-gradient(90deg, #00FF7F, #00CC66); -webkit-background-clip: text; color: transparent; text-shadow: 0 0 15px rgba(0, 255, 127, 0.7); cursor: pointer; transition: transform 0.3s ease, text-shadow 0.3s ease; }
+        .logo:hover { transform: scale(1.05) rotate(2deg); text-shadow: 0 0 20px rgba(0, 255, 127, 0.9); }
+        .nav-links { display: flex; gap: clamp(0.4rem, 1.5vw, 1.2rem); flex-wrap: wrap; transition: all 0.4s ease-in-out; }
+        .nav-links a { color: #E0E0E0; text-decoration: none; font-family: 'Orbitron', sans-serif; padding: clamp(0.2rem, 0.8vw, 0.4rem) clamp(0.4rem, 1.5vw, 0.8rem); font-size: clamp(0.8rem, 1.2vw, 1rem); position: relative; transition: all 0.3s ease; }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; background: linear-gradient(90deg, #00FF7F, #00CC66); bottom: 0; left: 50%; transform: translateX(-50%); transition: width 0.3s ease; }
+        .nav-links a:hover::after { width: 90%; }
+        .nav-links a:hover { color: #00FF7F; text-shadow: 0 0 8px rgba(0, 255, 127, 0.8); }
+        .burger { display: none; font-size: clamp(1.4rem, 3.5vw, 1.8rem); color: #00FF7F; cursor: pointer; transition: transform 0.3s ease, color 0.3s ease; }
+        .burger:hover { transform: rotate(90deg); color: #00CC66; }
+        #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0.8; }
+        section { margin: clamp(1.2rem, 4vw, 3.5rem) 0; padding: clamp(0.8rem, 3vw, 2rem); background: rgba(18, 18, 18, 0.9); border-left: clamp(2px, 0.8vw, 5px) solid #00FF7F; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 255, 127, 0.15); opacity: 0; transform: translateY(30px); animation: slideIn 0.6s ease forwards; }
+        section:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 255, 127, 0.25); }
+        @keyframes slideIn { to { opacity: 1; transform: translateY(0); } }
+        h1, h2, h3 { font-family: 'Orbitron', sans-serif; background: linear-gradient(90deg, #00FF7F, #00CC66); -webkit-background-clip: text; color: transparent; text-shadow: 0 0 10px rgba(0, 255, 127, 0.5); margin-bottom: clamp(0.5rem, 1.5vw, 1rem); }
+        h1 { font-size: clamp(1.6rem, 5.5vw, 3.2rem); }
+        h2 { font-size: clamp(1.2rem, 3.5vw, 2rem); }
+        h3 { font-size: clamp(0.9rem, 2.5vw, 1.4rem); }
+        p { margin-bottom: clamp(0.5rem, 1.5vw, 1rem); font-size: clamp(0.7rem, 1.8vw, 0.9rem); line-height: 1.6; color: #D0D0D0; }
+        .btn { background: linear-gradient(45deg, #00FF7F, #00CC66); color: #000; padding: clamp(0.3rem, 1.5vw, 0.6rem) clamp(0.6rem, 2vw, 1rem); font-family: 'Orbitron', sans-serif; font-weight: 700; border: none; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 15px rgba(0, 255, 127, 0.4); transition: all 0.3s ease; display: inline-block; }
+        .btn:hover { background: linear-gradient(45deg, #00CC66, #00FF7F); transform: translateY(-3px); }
+        .mini-game { text-align: center; position: relative; }
+        #clicker-canvas { display: none; border: clamp(2px, 0.8vw, 3px) solid #00FF7F; width: 100%; max-width: 800px; height: clamp(20vh, 30vh, 40vh); margin: clamp(0.6rem, 1.5vw, 1rem) auto; border-radius: 12px; }
+        #clicker-canvas.active { display: block; }
+        .game-stats { display: flex; justify-content: space-around; flex-wrap: wrap; margin: clamp(0.5rem, 1.5vw, 1rem) 0; font-size: clamp(0.6rem, 1.8vw, 0.9rem); font-family: 'Orbitron', sans-serif; }
+        .game-stats span { background: linear-gradient(90deg, #00FF7F, #00CC66); -webkit-background-clip: text; color: transparent; }
+        .shop { position: fixed; bottom: -100%; left: 0; width: 100%; background: rgba(18, 18, 18, 0.95); padding: clamp(0.3rem, 1.5vw, 0.6rem); border-top: 2px solid #00FF7F; transition: bottom 0.4s ease; z-index: 1000; overflow-y: auto; max-height: 70vh; }
+        .shop.active { bottom: 0; }
+        .shop-content { display: flex; flex-wrap: wrap; gap: clamp(0.3rem, 0.8vw, 0.6rem); justify-content: center; }
+        .shop-item { flex: 1 1 clamp(90px, 35vw, 140px); background: #151515; padding: clamp(0.3rem, 0.8vw, 0.6rem); border-radius: 8px; border: 1px solid rgba(0, 255, 127, 0.2); }
+        .shop-item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 255, 127, 0.4); border-color: #00FF7F; }
+        .shop-item p { margin: clamp(0.3rem, 0.8vw, 0.5rem) 0; font-size: clamp(0.6rem, 1.2vw, 0.8rem); }
+        .shop-item .btn { width: 100%; padding: clamp(0.3rem, 0.8vw, 0.5rem); }
+        .progress-bar { width: 100%; height: clamp(0.5rem, 1.2vw, 0.8rem); background: #151515; border: 2px solid #00FF7F; border-radius: 10px; margin-top: clamp(0.5rem, 1.5vw, 1rem); }
+        .progress { height: 100%; background: linear-gradient(90deg, #00FF7F, #00CC66); width: 0%; transition: width 0.5s ease; }
+        .gallery-grid, .facts-grid, .challenges-grid, .group-grid, .achievements-grid, .ideas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(clamp(180px, 28vw, 240px), 1fr)); gap: clamp(0.6rem, 1.5vw, 1.2rem); margin-top: clamp(0.6rem, 2vw, 1.2rem); }
+        .gallery-item, .fact-item, .challenge-item, .group-item, .achievement-item, .idea-item { background: #151515; padding: clamp(0.6rem, 1.5vw, 1rem); border: 2px solid rgba(0, 255, 127, 0.3); border-radius: 10px; text-align: center; }
+        .gallery-item:hover, .fact-item:hover, .challenge-item:hover, .group-item:hover, .achievement-item:hover, .idea-item:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0, 255, 127, 0.4); border-color: #00FF7F; }
+        .gallery-item img, .group-item img { width: 100%; max-width: 280px; height: auto; border-radius: 8px; object-fit: cover; }
+        .contact-form, .comment-form, .donate-form { display: flex; flex-direction: column; gap: clamp(0.5rem, 1.5vw, 1rem); }
+        .contact-form input, .contact-form textarea, .comment-form input, .comment-form textarea, .donate-form input { padding: clamp(0.3rem, 1.2vw, 0.6rem); background: #151515; color: #E0E0E0; border: 2px solid #00FF7F; border-radius: 8px; font-size: clamp(0.6rem, 1.2vw, 0.8rem); resize: vertical; }
+        .contact-form input:focus, .contact-form textarea:focus, .comment-form input:focus, .comment-form textarea:focus, .donate-form input:focus { border-color: #00CC66; box-shadow: 0 0 12px rgba(0, 255, 127, 0.5); outline: none; }
+        .comment-list { margin-top: clamp(0.6rem, 2vw, 1.2rem); }
+        .comment { background: #1A1A1A; padding: clamp(0.5rem, 1.5vw, 1rem); margin: clamp(0.3rem, 0.8vw, 0.6rem) 0; border-radius: 10px; border: 2px solid rgba(0, 255, 127, 0.3); }
+        .comment:hover { transform: scale(1.02); box-shadow: 0 4px 15px rgba(0, 255, 127, 0.3); }
+        .comment span { background: linear-gradient(90deg, #00FF7F, #00CC66); -webkit-background-clip: text; color: transparent; font-weight: bold; font-family: 'Orbitron', sans-serif; }
+        footer { text-align: center; padding: clamp(0.6rem, 2vw, 1.2rem); background: rgba(0, 0, 0, 0.9); font-size: clamp(0.6rem, 1.2vw, 0.8rem); }
+        .game-trailer { position: relative; padding-bottom: clamp(25%, 35vw, 40%); height: 0; overflow: hidden; margin-top: clamp(0.6rem, 1.5vw, 1rem); border-radius: 8px; }
+        .game-trailer iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        @media (max-width: 1024px) {
+            .nav-links { gap: clamp(0.2rem, 0.8vw, 0.8rem); }
+            section { padding: clamp(0.6rem, 2.5vw, 1.2rem); }
+            .gallery-grid, .facts-grid, .challenges-grid, .group-grid, .achievements-grid, .ideas-grid { grid-template-columns: repeat(auto-fit, minmax(clamp(160px, 35vw, 220px), 1fr)); }
+            .game-trailer { padding-bottom: 35%; }
+            .group-item img { max-width: 240px; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; flex-direction: column; width: 100%; background: rgba(0, 0, 0, 0.95); position: absolute; top: 100%; left: 0; padding: clamp(0.3rem, 1.5vw, 0.6rem); }
+            .nav-links.active { display: flex; animation: slideDown 0.4s ease forwards; }
+            @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+            .burger { display: block; }
+            .container { padding: clamp(0.6rem, 1.5vw, 1rem); }
+            #clicker-canvas { height: clamp(18vh, 28vh, 32vh); max-width: 580px; }
+            .game-stats { flex-direction: column; align-items: center; gap: 0.3rem; }
+            .shop-content { flex-direction: column; align-items: center; }
+            .shop-item { width: 80%; max-width: 240px; }
+            .game-trailer { padding-bottom: 30%; }
+            .group-item img { max-width: 180px; }
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: clamp(1.2rem, 4.5vw, 1.8rem); }
+            h2 { font-size: clamp(1rem, 3.5vw, 1.6rem); }
+            h3 { font-size: clamp(0.8rem, 2.5vw, 1.2rem); }
+            .btn { padding: clamp(0.2rem, 1.2vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.8rem); font-size: clamp(0.5rem, 1.8vw, 0.7rem); }
+            .gallery-grid, .facts-grid, .challenges-grid, .group-grid, .achievements-grid, .ideas-grid { grid-template-columns: 1fr; gap: 0.5rem; }
+            #clicker-canvas { height: clamp(16vh, 22vh, 28vh); max-width: 360px; }
+            .shop { padding: clamp(0.2rem, 1.2vw, 0.5rem); max-height: 60vh; }
+            .shop-item { width: 85%; max-width: 180px; padding: 0.2rem; }
+            .game-trailer { padding-bottom: 25%; }
+            section { margin: 0.8rem 0; padding: 0.6rem; }
+            .comment { padding: 0.4rem; margin: 0.2rem 0; }
+            .contact-form, .comment-form, .donate-form { gap: 0.4rem; }
+            .contact-form input, .contact-form textarea, .comment-form input, .comment-form textarea, .donate-form input { padding: 0.2rem; font-size: 0.6rem; }
+            .group-item img { max-width: 140px; }
+        }
+        @media (max-width: 360px) {
+            .logo { font-size: clamp(1.4rem, 4vw, 2rem); }
+            .nav-links a { font-size: clamp(0.7rem, 2vw, 0.9rem); }
+            #clicker-canvas { max-width: 300px; height: clamp(14vh, 20vh, 25vh); }
+            .container { padding: clamp(0.4rem, 1vw, 0.8rem); }
+            section { margin: 0.6rem 0; padding: 0.5rem; }
+        }
+        @media (min-width: 2560px) {
+            .container { max-width: 2200px; }
+            h1 { font-size: clamp(3rem, 6vw, 4.5rem); }
+            h2 { font-size: clamp(2rem, 4vw, 3rem); }
+            .nav-links a { font-size: clamp(1rem, 1.8vw, 1.4rem); }
+            #clicker-canvas { height: 60vh; max-width: 1000px; }
+            .group-item img { max-width: 400px; }
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-53PYM8HXCW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-53PYM8HXCW');
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "GreenGamesStudio",
+      "url": "https://miras761.github.io/GreenGamesStudio---Studio-About-Does-Games",
+      "logo": "https://miras761.github.io/GreenGamesStudio---Studio-About-Does-Games/images/logo.png",
+      "description": "GreenGamesStudio — сайт молодого геймдева из Казахстана, создающего уникальные игры и мини-игры.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "green.games.studio2025@gmail.com",
+        "contactType": "customer support"
+      },
+      "sameAs": [
+        "https://www.youtube.com/@Miras_razrabgames",
+        "https://t.me/+BtFF6XZ80LBkNGQy"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">GreenGamesStudio</div>
+                <div class="burger">☰</div>
+                <div class="nav-links">
+                    <a href="#home">Главная</a>
+                    <a href="#about">Обо мне</a>
+                    <a href="#games">Игры</a>
+                    <a href="#mini-games">Мини-игры</a>
+                    <a href="#gallery">Галерея</a>
+                    <a href="#facts">Факты</a>
+                    <a href="#challenges">Челленджи</a>
+                    <a href="#achievements">Достижения</a>
+                    <a href="#ideas">Идеи</a>
+                    <a href="#news">Новости</a>
+                    <a href="#donate">Донат</a>
+                    <a href="#comments">Комментарии</a>
+                    <a href="#creators">Создатели</a>
+                    <a href="#group">Наша группа</a>
+                    <a href="#contact-dev">Обратиться</a>
+                    <a href="#contacts">Контакты</a>
+                    <a href="#privacy">Политика</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <canvas id="particles"></canvas>
+
+    <div class="container">
+        <section id="home">
+            <h1>GreenGamesStudio</h1>
+            <p>Добро пожаловать в мир GreenGamesStudio! Я Сайын Мирас, молодой геймдев из Казахстана. Здесь ты найдешь мои игры, мини-проекты и частичку моей души. Погрузись в приключения, испытай себя и поддержи мою мечту создавать шедевры!</p>
+            <a href="#mini-games" class="btn">Попробовать мини-игру</a>
+        </section>
+
+        <section id="about">
+            <h2>Обо мне</h2>
+            <p>Мне 13, и я уже несколько лет живу кодом и играми. От простых программ до собственных проектов — это мой путь. Космос, технологии и гейминг — мои главные вдохновители. Мечтаю создать игру, которая покорит мир!</p>
+        </section>
+
+        <section id="games">
+            <h2>Игры</h2>
+            <div>
+                <h3>Run From Neighbor</h3>
+                <p>Раскрой злой соседа тайну.</p>
+                <div class="game-trailer">
+                    <iframe src="https://www.youtube.com/embed/Um7f28ranXE" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <a href="https://drive.google.com/file/d/15wmI8lQflIJYBLROngiPX78d_FhCTk5a/view?usp=drive_link" class="btn">Скачать</a>
+            </div>
+            <div>
+                <h3>Green's TSB (В Roblox)</h3>
+                <p>Мой первый шаг в Roblox — уникальный проект.</p>
+                <a href="#" class="btn" onclick="alert('Играем В роблоксе Только в людях ищите BaconBro2395 и ищите проект Green\'s TSB')">В Роблоксе Играем(только)</a>
+            </div>
+        </section>
+
+        <section id="mini-games">
+            <h2>Мини-игры</h2>
+            <div class="mini-game">
+                <h3>Клик Бургер</h3>
+                <p>Создай империю бургеров! Кликай и улучшай. 1000 бургеров — секретный режим!</p>
+                <button class="btn play-btn" data-game="clicker">Запустить</button>
+                <canvas id="clicker-canvas"></canvas>
+                <div class="game-stats">
+                    <p>Бургеры: <span id="burger-score">0</span></p>
+                    <p>Кликов/с: <span id="click-rate">0</span></p>
+                    <p>Уровень: <span id="level">1</span></p>
+                </div>
+                <div class="progress-bar"><div class="progress" id="burger-progress"></div></div>
+                <div id="shop" class="shop">
+                    <h3>Магазин</h3>
+                    <div class="shop-content">
+                        <div class="shop-item"><p>Сочный Клик (+5)</p><p>Цена: 50</p><button class="btn" onclick="buyUpgrade('clickPower')">Купить</button></div>
+                        <div class="shop-item"><p>Бургер-бот (+1/с)</p><p>Цена: 100</p><button class="btn" onclick="buyUpgrade('autoClick')">Купить</button></div>
+                        <div class="shop-item"><p>Мега-Клик (x10, 15с)</p><p>Цена: 250</p><button class="btn" onclick="buyUpgrade('megaClick')">Купить</button></div>
+                        <div class="shop-item"><p>Фабрика (+10/с)</p><p>Цена: 500</p><button class="btn" onclick="buyUpgrade('factory')">Купить</button></div>
+                        <div class="shop-item"><p>Золотой Бургер (x2)</p><p>Цена: 1000</p><button class="btn" onclick="buyUpgrade('goldenBurger')">Купить</button></div>
+                        <div class="shop-item"><p>Космо-Бургер (+50/с)</p><p>Цена: 2000</p><button class="btn" onclick="buyUpgrade('cosmoBurger')">Купить</button></div>
+                    </div>
+                    <button id="shop-close" class="btn">Закрыть Магазин</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Галерея</h2>
+            <p>Взгляни на мир моих игр — яркие сцены и герои ждут тебя!</p>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="images/neighbor.png" alt="Сосед из игры Run From Neighbor от GreenGamesStudio" loading="lazy"><p>Сосед</p></div>
+                <div class="gallery-item"><img src="images/hero.png" alt="Герой игры от GreenGamesStudio" loading="lazy"><p>Герой</p></div>
+                <div class="gallery-item"><img src="images/burger.png" alt="Бургер из мини-игры Клик Бургер" loading="lazy"><p>Бургер</p></div>
+            </div>
+        </section>
+
+        <section id="facts">
+            <h2>Факты</h2>
+            <p>Узнай меня лучше!</p>
+            <div class="facts-grid">
+                <div class="fact-item"><p>Первая игра в 12 лет.</p></div>
+                <div class="fact-item"><p>Зеленый — мой космос.</p></div>
+                <div class="fact-item"><p>Мечтаю о галактической саге!</p></div>
+            </div>
+        </section>
+
+        <section id="challenges">
+            <h2>Челленджи</h2>
+            <p>Докажи, что ты мастер!</p>
+            <div class="challenges-grid">
+                <div class="challenge-item"><p>500 бургеров без ботов.</p></div>
+                <div class="challenge-item"><p>Уровень 5 за 10 минут.</p></div>
+                <div class="challenge-item"><p>Придумай игру для меня!</p></div>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2>Достижения</h2>
+            <p>Пройди испытания и открой награды!</p>
+            <div class="achievements-grid">
+                <div class="achievement-item"><p>Бургер-Мастер: Собрать 1000 бургеров.</p></div>
+                <div class="achievement-item"><p>Клик-Машина: 50 кликов за секунду.</p></div>
+                <div class="achievement-item"><p>Империя: Купить все улучшения.</p></div>
+            </div>
+        </section>
+
+        <section id="ideas">
+            <h2>Идеи для игр</h2>
+            <p>Поделись своими идеями или вдохновись моими!</p>
+            <div class="ideas-grid">
+                <div class="idea-item"><p>Космический побег: Убегай от инопланетян!</p></div>
+                <div class="idea-item"><p>Бургерная галактика: Строй рестораны на планетах.</p></div>
+                <div class="idea-item"><p>Твой ход: Пришли свою идею мне!</p></div>
+            </div>
+        </section>
+
+        <section id="news">
+            <h2>Новости</h2>
+            <p>20.03.2025: Добавлена новая концовка в "Run From Neighbor"! ИИ соседа стал лучше, чем в предыдущих версиях! 🎉<br>15.03.2025: Новая версия в "Run From Neighbor"!<br>10.02.2025: "Run From Neighbor" добавлен телевизор!</p>
+        </section>
+
+        <section id="donate">
+            <h2>Донат</h2>
+            <p>Поддержи мою мечту! Каждый тенге — шаг к новым играм.</p>
+            <form action="https://formspree.io/f/xvgzebqo" method="POST" class="donate-form">
+                <input type="number" name="amount" placeholder="Сумма (KZT)" min="100" required>
+                <input type="text" name="card_number" placeholder="Номер карты (16 цифр)" pattern="\d{16}" required>
+                <input type="text" name="card_expiry" placeholder="ММ/ГГ (например, 12/25)" pattern="\d{2}/\d{2}" required>
+                <input type="text" name="card_cvv" placeholder="CVV (3 цифры)" pattern="\d{3}" required>
+                <button type="submit" class="btn">Отправить донат</button>
+            </form>
+            <p>Все транзакции безопасны. Данные отправляются через защищённый сервис.</p>
+        </section>
+
+        <section id="comments">
+            <h2>Комментарии</h2>
+            <p>Поделись мыслями — я читаю всё! 😊✨</p>
+            <form id="comment-form" class="comment-form">
+                <input type="text" id="comment-name" placeholder="Твоё имя" required>
+                <textarea id="comment-message" placeholder="Комментарий (добавь эмодзи! 😍🚀)" required></textarea>
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+            <div id="comment-list" class="comment-list"></div>
+        </section>
+
+        <section id="creators">
+            <h2>Создатели</h2>
+            <p>Наша команда:</p>
+            <p><strong>GreenGamesStudio</strong> — основатель и главный разработчик. 🎮</p>
+            <p>Хочешь стать создателем? Отправь заявку на <a href="mailto:green.games.studio2025@gmail.com">green.games.studio2025@gmail.com</a> с темой "Заявка в создатели"!</p>
+        </section>
+
+        <section id="group">
+            <h2>Наша группа</h2>
+            <p>Это я, Сайын Мирас, основатель GreenGamesStudio! 🚀</p>
+            <div class="group-grid">
+                <div class="group-item">
+                    <img src="images/miras.png" alt="Сайын Мирас, основатель GreenGamesStudio" loading="lazy">
+                    <p>GreenGamesStudio</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact-dev">
+            <h2>Обратиться</h2>
+            <p>Идеи, баги, чат — пиши мне!</p>
+            <p>Email: <a href="mailto:green.games.studio2025@gmail.com">green.games.studio2025@gmail.com</a></p>
+            <form action="https://formspree.io/f/xvgzebqo" method="POST" class="contact-form">
+                <input type="text" name="name" placeholder="Имя" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Сообщение" required></textarea>
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+        </section>
+
+        <section id="contacts">
+            <h2>Контакты</h2>
+            <p>Будь на связи через соцсети!</p>
+            <a href="https://www.youtube.com/@Miras_razrabgames" class="btn">YouTube</a>
+            <a href="https://t.me/+BtFF6XZ80LBkNGQy" class="btn">Telegram</a>
+            <p>Discord: YourNick#1234</p>
+        </section>
+
+        <section id="privacy">
+            <h2>Политика конфиденциальности</h2>
+            <p>Привет! Я, Сайын Мирас, создатель GreenGamesStudio, ценю твоё доверие. Здесь я объясню, как я работаю с твоими данными. Всё просто и честно!</p>
+            <h3>Какие данные я собираю?</h3>
+            <p>Я собираю только то, что ты сам оставляешь: имя и сообщение из формы комментариев, а также имя, email и текст из формы обратной связи. Никаких шпионских штучек — только то, что нужно для общения!</p>
+            <h3>Зачем мне это?</h3>
+            <p>Чтобы ответить тебе, если ты пишешь мне, или показать твой комментарий на сайте. Всё для того, чтобы мы могли быть на связи и делать сайт лучше.</p>
+            <h3>Кто видит твои данные?</h3>
+            <p>Только я, Сайын Мирас. Я не передаю твои данные никому — ни компаниям, ни друзьям, ни соседям. Они нужны мне только для работы с сайтом.</p>
+            <h3>Где хранятся данные?</h3>
+            <p>Комментарии видны на сайте, а сообщения из формы обратной связи приходят мне на email через сервис Formspree (они тоже обещают не раздавать твои данные). Я не храню ничего лишнего дольше, чем нужно.</p>
+            <h3>Как я защищаю данные?</h3>
+            <p>Сайт простой, без сложных баз данных, но я слежу, чтобы всё было безопасно. Никаких хакеров сюда не пускаем!</p>
+            <h3>Твои права</h3>
+            <p>Хочешь, чтобы я удалил твой комментарий или сообщение? Просто напиши мне на <a href="mailto:green.games.studio2025@gmail.com">green.games.studio2025@gmail.com</a>, и я всё уберу. Ты главный!</p>
+            <h3>Изменения политики</h3>
+            <p>Если что-то поменяется, я обновлю этот текст. Заходи сюда иногда, чтобы быть в курсе.</p>
+            <p>Дата обновления: 15 марта 2025. Если есть вопросы — пиши мне, разберёмся вместе!</p>
+        </section>
+    </div>
+
+    <footer><p>© 2025 Сайын Мирас | GreenGamesStudio</p></footer>
+
+    <script>
+        const particleCanvas = document.getElementById('particles');
+        const particleCtx = particleCanvas.getContext('2d');
+        particleCanvas.width = window.innerWidth;
+        particleCanvas.height = window.innerHeight;
+        let particlesArray = [];
+        class Particle {
+            constructor() {
+                this.x = Math.random() * particleCanvas.width;
+                this.y = Math.random() * particleCanvas.height;
+                this.size = Math.random() * 5 + 1;
+                this.speedX = (Math.random() * 1 - 0.5);
+                this.speedY = (Math.random() * 1 - 0.5);
+                this.opacity = Math.random() * 0.5 + 0.3;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > particleCanvas.width || this.x < 0) this.speedX *= -1;
+                if (this.y > particleCanvas.height || this.y < 0) this.speedY *= -1;
+            }
+            draw() {
+                particleCtx.fillStyle = `rgba(0, 255, 127, ${this.opacity})`;
+                particleCtx.beginPath();
+                particleCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                particleCtx.fill();
+            }
+        }
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < 100; i++) particlesArray.push(new Particle());
+        }
+        function animateParticles() {
+            particleCtx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+            particlesArray.forEach(p => { p.update(); p.draw(); });
+            requestAnimationFrame(animateParticles);
+        }
+        window.addEventListener('resize', () => {
+            particleCanvas.width = window.innerWidth;
+            particleCanvas.height = window.innerHeight;
+            initParticles();
+        });
+        initParticles();
+        animateParticles();
+
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            burger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        const playBtn = document.querySelector('.play-btn');
+        const clickerCanvas = document.getElementById('clicker-canvas');
+        const shop = document.getElementById('shop');
+        const shopClose = document.getElementById('shop-close');
+        let gameActive = false;
+        playBtn.addEventListener('click', () => {
+            clickerCanvas.classList.add('active');
+            playBtn.style.display = 'none';
+            startBurgerClicker();
+        });
+        function addShopButton() {
+            const existingShopBtn = document.querySelector('.shop-btn');
+            if (!existingShopBtn) {
+                const shopBtn = document.createElement('button');
+                shopBtn.className = 'btn shop-btn';
+                shopBtn.textContent = 'Магазин';
+                shopBtn.style.position = 'absolute';
+                shopBtn.style.bottom = '8px';
+                shopBtn.style.right = '8px';
+                shopBtn.addEventListener('click', () => shop.classList.add('active'));
+                clickerCanvas.parentElement.appendChild(shopBtn);
+            }
+        }
+        shopClose.addEventListener('click', () => shop.classList.remove('active'));
+        const clickerCtx = clickerCanvas.getContext('2d');
+        let burgerScore = 0, clickPower = 1, autoClick = 0, level = 1, particles = [], megaClickActive = false, megaClickTimer = 0, goldenMultiplier = 1;
+        let clicksThisSecond = 0, lastClickTime = 0;
+        const burgerScoreDisplay = document.getElementById('burger-score');
+        const clickRateDisplay = document.getElementById('click-rate');
+        const levelDisplay = document.getElementById('level');
+        const burgerProgress = document.getElementById('burger-progress');
+        function resizeCanvas() {
+            clickerCanvas.width = Math.min(clickerCanvas.parentElement.offsetWidth, 800);
+            clickerCanvas.height = 25 * window.innerHeight / 100;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        function startBurgerClicker() {
+            if (gameActive) return;
+            gameActive = true;
+            addShopButton();
+            drawBurger();
+            updateStatsLoop();
+        }
+        clickerCanvas.addEventListener('click', e => {
+            if (!gameActive || shop.classList.contains('active')) return;
+            const rect = clickerCanvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            if (Math.hypot(x - clickerCanvas.width / 2, y - clickerCanvas.height / 2) < 80) {
+                burgerScore += clickPower * goldenMultiplier;
+                clicksThisSecond++;
+                spawnParticles(x, y);
+                checkLevelUp();
+            }
+        });
+        function spawnParticles(x, y) {
+            for (let i = 0; i < 5; i++) particles.push({ x, y, vx: (Math.random() - 0.5) * 4, vy: (Math.random() - 0.5) * 4, size: Math.random() * 8 + 4, life: 25 });
+        }
+        function buyUpgrade(type) {
+            const costs = { clickPower: 50, autoClick: 100, megaClick: 250, factory: 500, goldenBurger: 1000, cosmoBurger: 2000 };
+            if (burgerScore >= costs[type]) {
+                burgerScore -= costs[type];
+                if (type === 'clickPower') clickPower += 5;
+                else if (type === 'autoClick') autoClick += 1;
+                else if (type === 'megaClick') { megaClickActive = true; megaClickTimer = 15; }
+                else if (type === 'factory') autoClick += 10;
+                else if (type === 'goldenBurger') goldenMultiplier *= 2;
+                else if (type === 'cosmoBurger') autoClick += 50;
+                alert(`Куплено: ${type === 'megaClick' ? 'Мега-Клик (x10 на 15 сек)' : type === 'goldenBurger' ? 'Золотой Бургер (x2)' : type === 'cosmoBurger' ? 'Космо-Бургер (+50/с)' : type.replace('clickPower', 'Сочный Клик').replace('autoClick', 'Бургер-бот').replace('factory', 'Фабрика')}!`);
+                updateStats();
+            } else alert('Недостаточно бургеров!');
+        }
+        function checkLevelUp() {
+            if (burgerScore >= level * 500) { level++; alert(`Уровень ${level}!`); clickPower += 1; autoClick += 1; }
+            updateStats();
+        }
+        function updateStats() {
+            burgerScoreDisplay.textContent = Math.floor(burgerScore);
+            levelDisplay.textContent = level;
+            burgerProgress.style.width = Math.min((burgerScore / (level * 500)) * 100, 100) + '%';
+            if (burgerScore >= 1000 && level === 1) { alert('Секретный режим!'); clickPower += 20; burgerScore = 0; }
+        }
+        function updateStatsLoop() {
+            if (!gameActive) return;
+            burgerScore += autoClick * goldenMultiplier;
+            if (megaClickActive) { megaClickTimer -= 0.1; if (megaClickTimer <= 0) megaClickActive = false; }
+            updateStats();
+            const now = Date.now();
+            if (now - lastClickTime >= 1000) { clickRateDisplay.textContent = clicksThisSecond; clicksThisSecond = 0; lastClickTime = now; }
+            requestAnimationFrame(updateStatsLoop);
+        }
+        function drawBurger() {
+            if (!gameActive) return;
+            clickerCtx.clearRect(0, 0, clickerCanvas.width, clickerCanvas.height);
+            clickerCtx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+            clickerCtx.fillRect(0, 0, clickerCanvas.width, clickerCanvas.height);
+            clickerCtx.fillStyle = '#FF4500';
+            clickerCtx.font = '60px Arial';
+            clickerCtx.textAlign = 'center';
+            clickerCtx.fillText('🍔', clickerCanvas.width / 2, clickerCanvas.height / 2 + 20);
+            particles.forEach((p, i) => {
+                p.x += p.vx; p.y += p.vy; p.life--;
+                p.size *= 0.9;
+                clickerCtx.fillStyle = `rgba(255, 69, 0, ${p.life / 25})`;
+                clickerCtx.beginPath();
+                clickerCtx.arc(p.x, p.y, p.size / 2, 0, Math.PI * 2);
+                clickerCtx.fill();
+                if (p.life <= 0) particles.splice(i, 1);
+            });
+            requestAnimationFrame(drawBurger);
+        }
+
+        document.getElementById('comment-form').addEventListener('submit', e => {
+            e.preventDefault();
+            const name = document.getElementById('comment-name').value;
+            const message = document.getElementById('comment-message').value;
+            const commentList = document.getElementById('comment-list');
+            const comment = document.createElement('div');
+            comment.className = 'comment        comment.innerHTML = `<span>${name}</span><p>${message}</p>`;
+            commentList.appendChild(comment);
+            document.getElementById('comment-form').reset();
+        });
+
+        document.querySelector('.donate-form').addEventListener('submit', e => {
+            e.preventDefault();
+            alert('Спасибо за поддержку! Ваши данные отправлены. Вы получите подтверждение по email.');
+            document.querySelector('.donate-form').reset();
+        });
+    </script>
+</body>
+</html>
